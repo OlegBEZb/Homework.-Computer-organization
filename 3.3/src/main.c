@@ -3,20 +3,20 @@
 #include <math.h>
 #include <string.h>
 
-volatile uint8_t countSetBits(uint32_t n);
+	uint8_t countSetBits(uint32_t n);
 
-volatile uint8_t countLeadingZeros( uint32_t n);
+	uint8_t countLeadingZeros( uint32_t n);
  
 int main(void)
 {
-	volatile uint32_t example=0x11ff0ffe;
+	volatile uint32_t example=0x7fffffff;
 	volatile uint8_t result=countLeadingZeros(example);
 	
 	while(1);
 	return 0;
 }
 
-volatile uint8_t countSetBits(uint32_t n)
+	uint8_t countSetBits(uint32_t n)
 {
 	return ((n&1)==1)+((n&2)==2)+((n&4)==4)+((n&8)==8)+((n&16)==16)+((n&32)==32)
 	+((n&1<<6)==(1<<6))+((n&1<<7)==(1<<7))+((n&1<<8)==(1<<8))+((n&1<<9)==(1<<9))
@@ -27,10 +27,11 @@ volatile uint8_t countSetBits(uint32_t n)
 	+((n&1<<22)==(1<<22))+((n&1<<23)==(1<<23))+((n&1<<24)==(1<<24))
 	+((n&1<<25)==(1<<25))+((n&1<<26)==(1<<26))+((n&1<<27)==(1<<27))
 	+((n&1<<28)==(1<<28))+((n&1<<29)==(1<<29))+((n&1<<30)==(1<<30))
-	+((n&1<<31)==(1<<31));
+	+((n&1u<<31)==(1u<<31));
 }
-volatile uint8_t countLeadingZeros( uint32_t n)
+	uint8_t countLeadingZeros( uint32_t n)
 {
+	if(n==0) return 32;
 	volatile uint32_t numerals=0xffffffff; //set a number consisting only of ones 
 	volatile uint32_t number=(numerals-((n&1)==1))&(numerals-((n&1<<1)==(1<<1))*(numerals>>31))&
 	(numerals-((n&1<<2)==(1<<2))*(numerals>>30))&(numerals-((n&1<<3)==(1<<3))*(numerals>>29))&
@@ -47,6 +48,6 @@ volatile uint8_t countLeadingZeros( uint32_t n)
 	(numerals-((n&1<<24)==(1<<24))*(numerals>>8))&(numerals-((n&1<<25)==(1<<25))*(numerals>>7))&
 	(numerals-((n&1<<26)==(1<<26))*(numerals>>6))&(numerals-((n&1<<27)==(1<<27))*(numerals>>5))&
 	(numerals-((n&1<<28)==(1<<28))*(numerals>>4))&(numerals-((n&1<<29)==(1<<29))*(numerals>>3))&
-	(numerals-((n&1<<30)==(1<<30))*(numerals>>2))&(numerals-((n&1<<31)==(1<<31))*(numerals>>1));
+	(numerals-((n&1<<30)==(1<<30))*(numerals>>2))&(numerals-((n&1u<<31)==(1u<<31))*(numerals>>1));
 	return countSetBits(number)-1;
 }

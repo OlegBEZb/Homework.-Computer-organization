@@ -11,7 +11,7 @@ int32_t strToInt( const char * str );
  
 int main(void)
 {
-	char str[]="12345";//enter some stroke
+	char str[]="-1<0k0k02";//enter some stroke
 	lenstr_crutch=strlen(str);
 	lengoogle_crutch=strlen(google);
 	volatile int32_t answer=strToInt(str);
@@ -23,11 +23,11 @@ int main(void)
 //[-99 999 999;999 999 999]
 int32_t strToInt( const char * str)
 {
-	int32_t number=0;
-	int32_t power=0;
-	for(int32_t i=lenstr_crutch-1;i>=0;i--)//reading the number backwards
+	int64_t number=0;
+	int64_t power=0;
+	for(int64_t i=lenstr_crutch-1;i>=0;i--)//reading the number backwards
 	{
-		for(int32_t j=0;j<lengoogle_crutch;j++)
+		for(int64_t j=0;j<lengoogle_crutch;j++)
 		{
 			if(str[i]==google[j])
 			{

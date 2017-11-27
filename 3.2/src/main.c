@@ -3,7 +3,7 @@
 #include <math.h>
 #include <string.h>
 
-volatile uint8_t countSetBits(uint32_t n);
+	uint8_t countSetBits(uint32_t n);
  
 int main(void)
 {
@@ -14,7 +14,7 @@ int main(void)
 	return 0;
 }
 
-volatile uint8_t countSetBits(uint32_t n)
+	uint8_t countSetBits(uint32_t n)
 {
 	return ((n&1)==1)+((n&2)==2)+((n&4)==4)+((n&8)==8)+((n&16)==16)+((n&32)==32)+
 	((n&1<<6)==(1<<6))+((n&1<<7)==(1<<7))+((n&1<<8)==(1<<8))+((n&1<<9)==(1<<9))+
@@ -25,5 +25,5 @@ volatile uint8_t countSetBits(uint32_t n)
 	((n&1<<22)==(1<<22))+((n&1<<23)==(1<<23))+((n&1<<24)==(1<<24))+
 	((n&1<<25)==(1<<25))+((n&1<<26)==(1<<26))+((n&1<<27)==(1<<27))+
 	((n&1<<28)==(1<<28))+((n&1<<29)==(1<<29))+((n&1<<30)==(1<<30))+
-	((n&1<<31)==(1<<31));
+	((n&1u<<31)==(1u<<31));
 }
