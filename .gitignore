@@ -53,3 +53,11 @@ dkms.conf
 3.1/src/main.c
 3.1/dummy.uvopt
 3.1/dummy.uvgui.Oleg
+3.3/obj/system_stm32f10x.crf
+3.3/obj/main.crf
+3.3/obj/dummy_Target 1.dep
+3.3/obj/dummy.lnp
+3.3/obj/dummy.htm
+3.3/obj/dummy.build_log.htm
+3.3/obj/dummy.axf
+3.3/lst/startup_stm32f10x_md.lst
